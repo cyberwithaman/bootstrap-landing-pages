@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Templates - Professional Online Store Solution</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4c6ef5;
+            --secondary-color: #fd7e14;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .card {
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #3a5ae5;
+            border-color: #3a5ae5;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .newsletter-form .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: #adb5bd;
+        }
+
+        .price-tag {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .badge-sale {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--secondary-color);
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: white;
+            z-index: 2;
+        }
+
+        .payment-icons i {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #6c757d;
+        }
+
+        .category-pill {
+            background-color: var(--light-color);
+            border-radius: 30px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-pill:hover,
+        .category-pill.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                padding: 100px 0;
+            }
+
+            .product-card .card-img-top {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="text-primary">Shop</span>Cart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#featured">Featured Products</a></li>
+                            <li><a class="dropdown-item" href="#new-arrivals">New Arrivals</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#categories">All Categories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#templates">Templates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex ms-3 align-items-center">
+                    <a href="#" class="btn btn-outline-primary me-2">
+                        <i class="fas fa-user me-1"></i> Account
+                    </a>
+                    <a href="#" class="text-dark me-3 cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white text-center">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold mb-4">Launch Your Online Store Today</h1>
+                    <p class="lead mb-5">Professional e-commerce templates with shopping carts, product galleries, and
+                        payment integration. Everything you need for your online business.</p>
+                    <a href="#templates" class="btn btn-primary btn-lg px-5 py-3 me-3">
+                        Explore Templates <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <a href="#demo" class="btn btn-outline-light btn-lg px-5 py-3">
+                        Request Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 my-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-5" data-aos="fade-up">Why Choose Our Templates</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center p-4">
+                        <i class="fas fa-mobile-alt feature-icon"></i>
+                        <h4>Fully Responsive</h4>
+                        <p class="text-muted">Our templates work perfectly on desktops, tablets, and mobile devices for
+                            a seamless shopping experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center p-4">
+                        <i class="fas fa-shopping-cart feature-icon"></i>
+                        <h4>Shopping Cart Integration</h4>
+                        <p class="text-muted">Advanced shopping cart functionality with wish lists, saved items, and
+                            simplified checkout process.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center p-4">
+                        <i class="fas fa-credit-card feature-icon"></i>
+                        <h4>Payment Solutions</h4>
+                        <p class="text-muted">Multiple payment gateways including PayPal, Stripe, and credit card
+                            processing for global customers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center p-4">
+                        <i class="fas fa-search feature-icon"></i>
+                        <h4>SEO Optimized</h4>
+                        <p class="text-muted">Built with best SEO practices to help your products rank higher in search
+                            engine results.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-center p-4">
+                        <i class="fas fa-tachometer-alt feature-icon"></i>
+                        <h4>Fast Loading Speed</h4>
+                        <p class="text-muted">Optimized code and compressed assets for lightning-fast page loading to
+                            reduce bounce rates.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="text-center p-4">
+                        <i class="fas fa-lock feature-icon"></i>
+                        <h4>Secure Coding</h4>
+                        <p class="text-muted">Security best practices implemented to protect your customer data and
+                            transaction details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Template Category Selection -->
+    <section id="categories" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Browse Template Categories</h2>
+            <div class="d-flex flex-wrap justify-content-center mb-5" data-aos="fade-up">
+                <div class="category-pill active">All Categories</div>
+                <div class="category-pill">Fashion</div>
+                <div class="category-pill">Electronics</div>
+                <div class="category-pill">Home & Garden</div>
+                <div class="category-pill">Beauty & Health</div>
+                <div class="category-pill">Sports</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Featured E-commerce Templates</h2>
+            <div class="row g-4">
+                <!-- Template 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card product-card h-100">
+                        <span class="badge-sale">Best Seller</span>
+                        <img src="https://plus.unsplash.com/premium_photo-1664202525979-80d1da46b34b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img-top" alt="Fashion Template">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Fashion Boutique</h5>
+                            <p class="text-muted mb-2">Modern template for clothing and accessories</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-tag fs-5">$89.00</span>
+                                <div class="rating text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <small class="text-muted ms-1">(128)</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-primary">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            class="card-img-top" alt="Electronics Template">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">ElectroShop</h5>
+                            <p class="text-muted mb-2">Perfect for electronics and digital products</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-tag fs-5">$99.00</span>
+                                <div class="rating text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <small class="text-muted ms-1">(94)</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-primary">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card product-card h-100">
+                        <span class="badge-sale">New</span>
+                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img-top" alt="Home Decor Template">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">HomeDecor</h5>
+                            <p class="text-muted mb-2">Elegant template for furniture and home goods</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-tag fs-5">$79.00</span>
+                                <div class="rating text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <small class="text-muted ms-1">(67)</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-primary">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1570857502809-08184874388e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            class="card-img-top" alt="Beauty Shop Template">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">BeautyShop</h5>
+                            <p class="text-muted mb-2">Stylish template for beauty and cosmetic products</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-tag fs-5">$85.00</span>
+                                <div class="rating text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                    <small class="text-muted ms-1">(42)</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-primary">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            class="card-img-top" alt="Pet Shop Template">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">PetMart</h5>
+                            <p class="text-muted mb-2">Dedicated template for pet supplies and accessories</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-tag fs-5">$79.00</span>
+                                <div class="rating text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <small class="text-muted ms-1">(38)</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-primary">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card product-card h-100">
+                        <span class="badge-sale">30% Off</span>
+                        <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            class="card-img-top" alt="Sports Template">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">SportFit</h5>
+                            <p class="text-muted mb-2">Dynamic template for sports and fitness equipment</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <span class="price-tag fs-5">$69.00</span>
+                                    <span class="text-muted text-decoration-line-through ms-2">$99.00</span>
+                                </div>
+                                <div class="rating text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <small class="text-muted ms-1">(56)</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-primary">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="#" class="btn btn-outline-primary btn-lg px-5">View All Templates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Integration Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Seamless Payment Integration</h2>
+            <p class="text-center text-muted mb-5" data-aos="fade-up">Our templates support all major payment processors
+                for a smooth checkout experience</p>
+
+            <div class="row align-items-center justify-content-center" data-aos="fade-up">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        class="img-fluid rounded shadow" alt="Payment Integration">
+                </div>
+                <div class="col-md-5">
+                    <h3 class="mb-4">Accept Payments Globally</h3>
+                    <p class="mb-4">Our templates integrate with leading payment processors to help you sell your
+                        products anywhere in the world.</p>
+
+                    <div class="mb-4">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i> Multiple Payment Options</h5>
+                        <p class="text-muted ms-4">Credit cards, digital wallets, bank transfers, and more.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i> Secure Transactions</h5>
+                        <p class="text-muted ms-4">SSL encryption and PCI compliance for secure customer data.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i> Currency Conversion</h5>
+                        <p class="text-muted ms-4">Automatic currency detection based on customer location.</p>
+                    </div>
+
+                    <div class="payment-icons mt-4">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-stripe"></i>
+                        <i class="fab fa-apple-pay"></i>
+                        <i class="fab fa-google-pay"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">What Our Customers Say</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Customer"
+                                class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <small class="text-muted">Fashion Boutique Owner</small>
+                            </div>
+                        </div>
+                        <div class="rating text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"The Fashion Boutique template helped me launch my online store in just two
+                            days. The responsive design and shopping cart functionality work flawlessly."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer"
+                                class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">David Thompson</h5>
+                                <small class="text-muted">Electronics Store Manager</small>
+                            </div>
+                        </div>
+                        <div class="rating text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"ElectroShop template increased our conversion rate by 35%. The product
+                            galleries and filtering options make navigation a breeze for our customers."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer"
+                                class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Emily Garcia</h5>
+                                <small class="text-muted">Home Decor Shop Owner</small>
+                            </div>
+                        </div>
+                        <div class="rating text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="mb-0">"The HomeDecor template is beautiful and functional. My customers love the
+                            shopping experience, and I appreciate how easy it was to customize."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center" data-aos="fade-up">
+            <h2 class="mb-4">Ready to Launch Your Online Store?</h2>
+            <p class="lead mb-5">Choose from our professional templates and start selling today.</p>
+            <a href="#templates" class="btn btn-light btn-lg px-5 me-3">
+                Browse Templates
+            </a>
+            <a href="#contact" class="btn btn-outline-light btn-lg px-5">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8" data-aos="fade-up">
+                    <div class="card shadow border-0">
+                        <div class="card-body p-4 p-md-5">
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="John Doe">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="john@example.com">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <input type="text" class="form-control" id="subject"
+                                            placeholder="How can we help you?">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="5"
+                                            placeholder="Your message here..."></textarea>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h4 class="mb-4">ShopCart</h4>
+                    <p>Professional e-commerce templates for your online business with all the features you need to
+                        succeed.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#">Home</a>
+                        <a href="#features">Features</a>
+                        <a href="#templates">Templates</a>
+                        <a href="#testimonials">Testimonials</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="mb-3">Templates</h5>
+                    <div class="footer-links">
+                        <a href="#">Fashion</a>
+                        <a href="#">Electronics</a>
+                        <a href="#">Home Decor</a>
+                        <a href="#">Beauty</a>
+                        <a href="#">Sports</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Subscribe to get updates on new templates and special offers.</p>
+                    <form class="newsletter-form mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="mt-4 mb-3">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 ShopCart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted me-3">Privacy Policy</a>
+                    <a href="#" class="text-muted me-3">Terms of Service</a>
+                    <a href="#" class="text-muted">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Simple shopping cart badge update
+        document.addEventListener('DOMContentLoaded', function () {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartBadge = document.querySelector('.cart-badge');
+            let cartCount = parseInt(cartBadge.textContent);
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    cartCount++;
+                    cartBadge.textContent = cartCount;
+
+                    // Show animation
+                    button.innerHTML = '<i class="fas fa-check"></i> Added';
+                    button.classList.add('btn-success');
+
+                    setTimeout(() => {
+                        button.innerHTML = 'Add to Cart';
+                        button.classList.remove('btn-success');
+                    }, 1500);
+                });
+            });
+        });
+
+        // Category pills
+        document.addEventListener('DOMContentLoaded', function () {
+            const pills = document.querySelectorAll('.category-pill');
+
+            pills.forEach(pill => {
+                pill.addEventListener('click', function () {
+                    pills.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
