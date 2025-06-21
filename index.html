@@ -7,7 +7,8 @@
     <title>Web Templates Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -18,26 +19,26 @@
             --info-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             --dark-gradient: linear-gradient(135deg, #232526 0%, #414345 100%);
         }
-        
+
         * {
             font-family: 'Poppins', sans-serif;
         }
-        
+
         .gradient-bg {
             background: var(--primary-gradient);
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
             border-radius: 15px !important;
             overflow: hidden;
         }
-        
+
         .card-hover:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
         }
-        
+
         .feature-icon {
             width: 80px;
             height: 80px;
@@ -49,23 +50,23 @@
             margin-bottom: 1.5rem;
             transition: all 0.3s ease;
         }
-        
+
         .feature-icon:hover {
             transform: scale(1.1);
         }
-        
+
         .navbar-custom {
             background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -75,7 +76,7 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
         }
-        
+
         .btn-custom {
             border-radius: 50px;
             padding: 12px 30px;
@@ -84,17 +85,17 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
         }
-        
+
         .btn-custom:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .section-title {
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -106,44 +107,65 @@
             background: var(--primary-gradient);
             border-radius: 2px;
         }
-        
+
         /* Animation keyframes */
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes shine {
-            0% { transform: translateX(-100%); }
-            50%, 100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            50%,
+            100% {
+                transform: translateX(100%);
+            }
         }
-        
+
         /* Navigation hover effects */
         .nav-link {
             position: relative;
             overflow: hidden;
         }
-        
+
         .nav-link:hover {
             color: #f093fb !important;
         }
-        
+
         .nav-link::before {
             content: '';
             position: absolute;
@@ -154,11 +176,11 @@
             background: linear-gradient(45deg, #667eea, #f093fb);
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::before {
             width: 100%;
         }
-        
+
         /* Parallax background */
         .parallax-bg {
             background-attachment: fixed;
@@ -166,13 +188,13 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        
+
         /* Card enhancements */
         .card-hover {
             position: relative;
             overflow: hidden;
         }
-        
+
         .card-hover::before {
             content: '';
             position: absolute;
@@ -180,21 +202,21 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
-        
+
         .card-hover:hover::before {
             left: 100%;
         }
-        
+
         /* Button enhancements */
         .btn-custom {
             position: relative;
             overflow: hidden;
             z-index: 1;
         }
-        
+
         .btn-custom::before {
             content: '';
             position: absolute;
@@ -202,34 +224,34 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
             z-index: -1;
         }
-        
+
         .btn-custom:hover::before {
             left: 100%;
         }
-        
+
         /* Scroll behavior */
         html {
             scroll-behavior: smooth;
         }
-        
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
-        
+
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
-        
+
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 4px;
         }
-        
+
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
@@ -239,63 +261,84 @@
 <body>
     <!-- Animated Background -->
     <div class="position-fixed w-100 h-100" style="z-index: -1;">
-        <div class="position-absolute w-100 h-100" style="background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c); opacity: 0.1; animation: gradientShift 15s ease infinite;">
+        <div class="position-absolute w-100 h-100"
+            style="background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c); opacity: 0.1; animation: gradientShift 15s ease infinite;">
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)); backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+    <nav class="navbar navbar-expand-lg navbar-dark"
+        style="background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)); backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="#" style="background: linear-gradient(45deg, #667eea, #f093fb); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 30px rgba(102,126,234,0.5);">
+            <a class="navbar-brand fw-bold fs-3" href="#"
+                style="background: linear-gradient(45deg, #667eea, #f093fb); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 30px rgba(102,126,234,0.5);">
                 <i class="fas fa-code me-2"></i>TemplateHub
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="background: linear-gradient(45deg, #667eea, #f093fb); border-radius: 10px;">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                style="background: linear-gradient(45deg, #667eea, #f093fb); border-radius: 10px;">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active position-relative px-4" href="#home" style="font-weight: 500; transition: all 0.3s ease;">
+                        <a class="nav-link active position-relative px-4" href="#home"
+                            style="font-weight: 500; transition: all 0.3s ease;">
                             Home
-                            <span class="position-absolute bottom-0 start-50 translate-middle-x" style="width: 30px; height: 3px; background: linear-gradient(45deg, #667eea, #f093fb); border-radius: 10px;"></span>
+                            <span class="position-absolute bottom-0 start-50 translate-middle-x"
+                                style="width: 30px; height: 3px; background: linear-gradient(45deg, #667eea, #f093fb); border-radius: 10px;"></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="#templates" style="font-weight: 500; transition: all 0.3s ease;">Templates</a>
+                        <a class="nav-link px-4" href="#templates"
+                            style="font-weight: 500; transition: all 0.3s ease;">Templates</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="#features" style="font-weight: 500; transition: all 0.3s ease;">Features</a>
+                        <a class="nav-link px-4" href="#features"
+                            style="font-weight: 500; transition: all 0.3s ease;">Features</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>    <!-- Hero Section -->
-    <section id="home" class="hero-section text-white py-5 position-relative" style="min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #f093fb 100%); overflow: hidden;">
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;3&quot; fill=&quot;rgba(255,255,255,0.1)&quot;/></svg>') repeat; animation: float 20s ease-in-out infinite;"></div>
+    </nav> <!-- Hero Section -->
+    <section id="home" class="hero-section text-white py-5 position-relative"
+        style="min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #f093fb 100%); overflow: hidden;">
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+            style="background: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;3&quot; fill=&quot;rgba(255,255,255,0.1)&quot;/></svg>') repeat; animation: float 20s ease-in-out infinite;">
+        </div>
         <div class="container position-relative">
             <div class="row align-items-center min-vh-50">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2 fw-bold mb-4 position-relative" style="text-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: fadeInUp 1s ease-out;">
+                    <h1 class="display-2 fw-bold mb-4 position-relative"
+                        style="text-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: fadeInUp 1s ease-out;">
                         Premium Web Templates Collection
-                        <span class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%); animation: shine 3s ease-in-out infinite;"></span>
+                        <span class="position-absolute top-0 start-0 w-100 h-100"
+                            style="background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%); animation: shine 3s ease-in-out infinite;"></span>
                     </h1>
-                    <p class="lead mb-5 fs-4" style="text-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: fadeInUp 1s ease-out 0.3s both;">
+                    <p class="lead mb-5 fs-4"
+                        style="text-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: fadeInUp 1s ease-out 0.3s both;">
                         Discover modern, responsive templates for every business need - from startups to enterprise
                     </p>
-                    <a href="#templates" class="btn btn-light btn-lg btn-custom px-5 py-3 fs-5" style="border-radius: 50px; box-shadow: 0 15px 35px rgba(255,255,255,0.2); animation: fadeInUp 1s ease-out 0.6s both;">
+                    <a href="#templates" class="btn btn-light btn-lg btn-custom px-5 py-3 fs-5"
+                        style="border-radius: 50px; box-shadow: 0 15px 35px rgba(255,255,255,0.2); animation: fadeInUp 1s ease-out 0.6s both;">
                         <i class="fas fa-rocket me-2"></i>Explore Templates
                     </a>
                 </div>
             </div>
         </div>
         <!-- Floating Elements -->
-        <div class="position-absolute" style="top: 20%; right: 10%; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
-        <div class="position-absolute" style="bottom: 30%; left: 15%; width: 60px; height: 60px; background: rgba(240, 147, 251, 0.2); border-radius: 50%; animation: float 8s ease-in-out infinite reverse;"></div>
-    </section>    <!-- Templates Grid -->
+        <div class="position-absolute"
+            style="top: 20%; right: 10%; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: float 6s ease-in-out infinite;">
+        </div>
+        <div class="position-absolute"
+            style="bottom: 30%; left: 15%; width: 60px; height: 60px; background: rgba(240, 147, 251, 0.2); border-radius: 50%; animation: float 8s ease-in-out infinite reverse;">
+        </div>
+    </section>
+    <!-- Templates Grid -->
     <section id="templates" class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-4 fw-bold section-title" style="background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                <h2 class="display-4 fw-bold section-title"
+                    style="background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
                     Template Categories
                 </h2>
                 <p class="lead text-muted mt-3">Choose from our curated collection of professional templates</p>
@@ -303,17 +346,21 @@
             <div class="row g-4">
                 <!-- Template 1 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-lg border-0 card-hover" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
-                        <div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px 20px 0 0;">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px 20px 0 0;">
                             <div class="position-absolute top-50 start-50 translate-middle">
                                 <i class="fas fa-building text-white" style="font-size: 4rem; opacity: 0.8;"></i>
                             </div>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold mb-3" style="color: #667eea;">Corporate Templates</h5>
-                            <p class="card-text flex-grow-1 text-muted">Professional corporate website templates with modern layouts and business-focused design elements.</p>
+                            <p class="card-text flex-grow-1 text-muted">Professional corporate website templates with
+                                modern layouts and business-focused design elements.</p>
                             <div class="mt-auto">
-                                <a href="/corporate-tamplates.html" class="btn btn-custom" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                <a href="/corporate-tamplates.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
                                     <i class="fas fa-eye me-2"></i>View Templates
                                 </a>
                             </div>
@@ -323,17 +370,21 @@
 
                 <!-- Template 2 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-lg border-0 card-hover" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
-                        <div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 20px 20px 0 0;">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 20px 20px 0 0;">
                             <div class="position-absolute top-50 start-50 translate-middle">
                                 <i class="fas fa-shopping-cart text-white" style="font-size: 4rem; opacity: 0.8;"></i>
                             </div>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold mb-3" style="color: #4facfe;">E-commerce Templates</h5>
-                            <p class="card-text flex-grow-1 text-muted">Complete online store templates with shopping cart, product galleries, and payment integration.</p>
+                            <p class="card-text flex-grow-1 text-muted">Complete online store templates with shopping
+                                cart, product galleries, and payment integration.</p>
                             <div class="mt-auto">
-                                <a href="/e-commerce-templates.html" class="btn btn-custom" style="background: linear-gradient(45deg, #4facfe, #00f2fe); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                <a href="/e-commerce-templates.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #4facfe, #00f2fe); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
                                     <i class="fas fa-eye me-2"></i>View Templates
                                 </a>
                             </div>
@@ -343,17 +394,21 @@
 
                 <!-- Template 3 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-lg border-0 card-hover" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
-                        <div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 20px 20px 0 0;">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 20px 20px 0 0;">
                             <div class="position-absolute top-50 start-50 translate-middle">
                                 <i class="fas fa-palette text-white" style="font-size: 4rem; opacity: 0.8;"></i>
                             </div>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold mb-3" style="color: #43e97b;">Creative Portfolio</h5>
-                            <p class="card-text flex-grow-1 text-muted">Stunning portfolio templates for artists, designers, and creative professionals.</p>
+                            <p class="card-text flex-grow-1 text-muted">Stunning portfolio templates for artists,
+                                designers, and creative professionals.</p>
                             <div class="mt-auto">
-                                <a href="/creative-portfolio.html" class="btn btn-custom" style="background: linear-gradient(45deg, #43e97b, #38f9d7); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                <a href="/creative-portfolio.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #43e97b, #38f9d7); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
                                     <i class="fas fa-eye me-2"></i>View Templates
                                 </a>
                             </div>
@@ -363,36 +418,47 @@
 
                 <!-- Template 4 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-lg border-0 card-hover" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
-                        <div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 20px 20px 0 0;">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 20px 20px 0 0;">
                             <div class="position-absolute top-50 start-50 translate-middle">
                                 <i class="fas fa-utensils text-white" style="font-size: 4rem; opacity: 0.8;"></i>
                             </div>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold mb-3" style="color: #fa709a;">Restaurant & Food</h5>
-                            <p class="card-text flex-grow-1 text-muted">Delicious restaurant and food service templates with menu displays and online ordering.</p>
+                            <p class="card-text flex-grow-1 text-muted">Delicious restaurant and food service templates
+                                with menu displays and online ordering.</p>
                             <div class="mt-auto">
-                                <a href="/restaurant-food.html" class="btn btn-custom" style="background: linear-gradient(45deg, #fa709a, #fee140); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                <a href="/restaurant-food.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #fa709a, #fee140); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
                                     <i class="fas fa-eye me-2"></i>View Templates
                                 </a>
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
                 <!-- Template 5 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-lg border-0 card-hover" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
-                        <div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%); border-radius: 20px 20px 0 0; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%); border-radius: 20px 20px 0 0; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);">
                             <div class="position-absolute top-50 start-50 translate-middle">
-                                <i class="fas fa-heartbeat text-white" style="font-size: 4rem; opacity: 0.9; text-shadow: 0 4px 8px rgba(0,0,0,0.3);"></i>
+                                <i class="fas fa-heartbeat text-white"
+                                    style="font-size: 4rem; opacity: 0.9; text-shadow: 0 4px 8px rgba(0,0,0,0.3);"></i>
                             </div>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
-                            <h5 class="card-title fw-bold mb-3" style="color: #ff6b6b; text-shadow: 0 2px 4px rgba(255,107,107,0.2);">Healthcare & Medical</h5>
-                            <p class="card-text flex-grow-1 text-muted">Professional medical and healthcare templates with appointment booking and service listings.</p>
+                            <h5 class="card-title fw-bold mb-3"
+                                style="color: #ff6b6b; text-shadow: 0 2px 4px rgba(255,107,107,0.2);">Healthcare &
+                                Medical</h5>
+                            <p class="card-text flex-grow-1 text-muted">Professional medical and healthcare templates
+                                with appointment booking and service listings.</p>
                             <div class="mt-auto">
-                                <a href="/healthcare-medical.html" class="btn btn-custom" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600; box-shadow: 0 8px 25px rgba(255,107,107,0.3);">
+                                <a href="/healthcare-medical.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600; box-shadow: 0 8px 25px rgba(255,107,107,0.3);">
                                     <i class="fas fa-eye me-2"></i>View Templates
                                 </a>
                             </div>
@@ -402,17 +468,93 @@
 
                 <!-- Template 6 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-lg border-0 card-hover" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
-                        <div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(135deg, #232526 0%, #414345 100%); border-radius: 20px 20px 0 0;">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #232526 0%, #414345 100%); border-radius: 20px 20px 0 0;">
                             <div class="position-absolute top-50 start-50 translate-middle">
                                 <i class="fas fa-laptop-code text-white" style="font-size: 4rem; opacity: 0.8;"></i>
                             </div>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold mb-3" style="color: #232526;">Tech & SaaS</h5>
-                            <p class="card-text flex-grow-1 text-muted">Modern technology and SaaS templates with feature showcases and pricing tables.</p>
+                            <p class="card-text flex-grow-1 text-muted">Modern technology and SaaS templates with
+                                feature showcases and pricing tables.</p>
                             <div class="mt-auto">
-                                <a href="/tech-saas.html" class="btn btn-custom" style="background: linear-gradient(45deg, #232526, #414345); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                <a href="/tech-saas.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #232526, #414345); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                    <i class="fas fa-eye me-2"></i>View Templates
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 7 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #1a472a 0%, #2d5016 50%, #4a7c28 100%); border-radius: 20px 20px 0 0;">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <i class="fas fa-graduation-cap text-white" style="font-size: 4rem; opacity: 0.8;"></i>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column p-4">
+                            <h5 class="card-title fw-bold mb-3" style="color: #1a472a;">Military & Defense Academy</h5>
+                            <p class="card-text flex-grow-1 text-muted">Professional military academy templates with
+                                training programs, curriculum displays, and enrollment systems.</p>
+                            <div class="mt-auto">
+                                <a href="/military-defense-academy.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #1a472a, #4a7c28); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                    <i class="fas fa-eye me-2"></i>View Templates
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 8 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); border-radius: 20px 20px 0 0;">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <i class="fas fa-microscope text-white" style="font-size: 4rem; opacity: 0.8;"></i>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column p-4">
+                            <h5 class="card-title fw-bold mb-3" style="color: #6c5ce7;">Science & Research</h5>
+                            <p class="card-text flex-grow-1 text-muted">Professional academic and research templates
+                                with publication displays and scientific layouts.</p>
+                            <div class="mt-auto">
+                                <a href="/science-research.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #6c5ce7, #a29bfe); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
+                                    <i class="fas fa-eye me-2"></i>View Templates
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 9 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-lg border-0 card-hover"
+                        style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px;">
+                        <div class="card-img-top position-relative"
+                            style="height: 250px; background: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #00d4aa 100%); border-radius: 20px 20px 0 0;">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <i class="fas fa-shield-alt text-white" style="font-size: 4rem; opacity: 0.8;"></i>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column p-4">
+                            <h5 class="card-title fw-bold mb-3" style="color: #0f4c75;">Cyber Defense Academy</h5>
+                            <p class="card-text flex-grow-1 text-muted">Professional cybersecurity training academy
+                                templates with course catalogs, certification programs, and hands-on lab environments.</p>
+                            <div class="mt-auto">
+                                <a href="/cyber-defense-academy.html" class="btn btn-custom"
+                                    style="background: linear-gradient(45deg, #0f4c75, #3282b8); color: white; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600;">
                                     <i class="fas fa-eye me-2"></i>View Templates
                                 </a>
                             </div>
@@ -421,34 +563,43 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- Features Section -->
-    <section id="features" class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #f093fb 100%); position: relative; overflow: hidden;">
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><circle cx=&quot;20&quot; cy=&quot;20&quot; r=&quot;2&quot; fill=&quot;rgba(255,255,255,0.1)&quot;/><circle cx=&quot;80&quot; cy=&quot;80&quot; r=&quot;2&quot; fill=&quot;rgba(255,255,255,0.1)&quot;/></svg>') repeat;"></div>
+        </div>
+    </section> <!-- Features Section -->
+    <section id="features" class="py-5"
+        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #f093fb 100%); position: relative; overflow: hidden;">
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+            style="background: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><circle cx=&quot;20&quot; cy=&quot;20&quot; r=&quot;2&quot; fill=&quot;rgba(255,255,255,0.1)&quot;/><circle cx=&quot;80&quot; cy=&quot;80&quot; r=&quot;2&quot; fill=&quot;rgba(255,255,255,0.1)&quot;/></svg>') repeat;">
+        </div>
         <div class="container position-relative">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h3 class="display-5 fw-bold text-white mb-4" style="text-shadow: 0 5px 15px rgba(0,0,0,0.3);">Built with Bootstrap Only</h3>
-                    <p class="lead text-white mb-5" style="text-shadow: 0 3px 10px rgba(0,0,0,0.2);">All landing pages are created using pure Bootstrap components and utilities for
+                    <h3 class="display-5 fw-bold text-white mb-4" style="text-shadow: 0 5px 15px rgba(0,0,0,0.3);">Built
+                        with Bootstrap Only</h3>
+                    <p class="lead text-white mb-5" style="text-shadow: 0 3px 10px rgba(0,0,0,0.2);">All landing pages
+                        are created using pure Bootstrap components and utilities for
                         maximum compatibility and performance.</p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-md-4 text-center">
-                    <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);">
+                    <div class="feature-icon mx-auto"
+                        style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);">
                         <i class="fas fa-mobile-alt text-white"></i>
                     </div>
                     <h5 class="text-white fw-bold mb-3">Responsive Design</h5>
                     <p class="text-white-50">All pages work perfectly on desktop, tablet, and mobile devices.</p>
                 </div>
                 <div class="col-md-4 text-center">
-                    <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); box-shadow: 0 10px 30px rgba(67, 233, 123, 0.3);">
+                    <div class="feature-icon mx-auto"
+                        style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); box-shadow: 0 10px 30px rgba(67, 233, 123, 0.3);">
                         <i class="fas fa-bolt text-white"></i>
                     </div>
                     <h5 class="text-white fw-bold mb-3">Fast Loading</h5>
                     <p class="text-white-50">Optimized for speed with minimal dependencies and clean code.</p>
                 </div>
                 <div class="col-md-4 text-center">
-                    <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);">
+                    <div class="feature-icon mx-auto"
+                        style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);">
                         <i class="fas fa-palette text-white"></i>
                     </div>
                     <h5 class="text-white fw-bold mb-3">Modern Design</h5>
@@ -457,8 +608,12 @@
             </div>
         </div>
         <!-- Floating decorative elements -->
-        <div class="position-absolute" style="top: 15%; left: 5%; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: float 10s ease-in-out infinite;"></div>
-        <div class="position-absolute" style="bottom: 20%; right: 8%; width: 120px; height: 120px; background: rgba(240, 147, 251, 0.1); border-radius: 50%; animation: float 12s ease-in-out infinite reverse;"></div>
+        <div class="position-absolute"
+            style="top: 15%; left: 5%; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: float 10s ease-in-out infinite;">
+        </div>
+        <div class="position-absolute"
+            style="bottom: 20%; right: 8%; width: 120px; height: 120px; background: rgba(240, 147, 251, 0.1); border-radius: 50%; animation: float 12s ease-in-out infinite reverse;">
+        </div>
     </section>
 
     <!-- Footer -->

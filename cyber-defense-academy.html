@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Defense Academy - Master Cybersecurity</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00ff88;
+            --secondary-color: #0066ff;
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a2e;
+            --text-light: #ffffff;
+            --text-muted: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .hero-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%2300ff88" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(10px, 10px);
+            }
+        }
+
+        /* Typography */
+        .hero-title {
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 4rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px var(--primary-color);
+            }
+
+            to {
+                text-shadow: 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
+            }
+        }
+
+        /* 3D Cards */
+        .cyber-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cyber-card:hover::before {
+            left: 100%;
+        }
+
+        .cyber-card:hover {
+            transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Animated Icons */
+        .cyber-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .cyber-icon:hover {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(26, 26, 46, 0.9) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Buttons */
+        .btn-cyber {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--dark-bg);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-cyber:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.4);
+            color: var(--dark-bg);
+        }
+
+        /* Course Cards */
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--card-bg) 0%, #16213e 100%);
+            padding: 5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .cyber-card {
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .cyber-loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 255, 136, 0.3);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: cyberspin 1s linear infinite;
+        }
+
+        @keyframes cyberspin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Fade in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-animation" id="loader">
+        <div class="cyber-loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-shield-alt me-2"></i>Cyber Defense Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="fade-in">
+                        <h1 class="hero-title mb-4">CYBER DEFENSE ACADEMY</h1>
+                        <p class="lead mb-4">Master the art of cybersecurity with cutting-edge training, real-world
+                            simulations, and expert-led courses. Defend the digital frontier.</p>
+                        <div class="d-flex gap-3">
+                            <button class="btn btn-cyber">Start Learning</button>
+                            <button class="btn btn-outline-light">Watch Demo</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center fade-in">
+                        <i class="fas fa-laptop-code cyber-icon" style="font-size: 8rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 mb-4 fade-in">Why Choose Our Academy?</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="cyber-card text-center fade-in">
+                        <i class="fas fa-shield-virus cyber-icon"></i>
+                        <h4>Advanced Threat Detection</h4>
+                        <p>Learn to identify and neutralize sophisticated cyber threats using cutting-edge tools and
+                            techniques.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="cyber-card text-center fade-in">
+                        <i class="fas fa-network-wired cyber-icon"></i>
+                        <h4>Network Security</h4>
+                        <p>Master network architecture, firewalls, and intrusion detection systems to build impenetrable
+                            defenses.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="cyber-card text-center fade-in">
+                        <i class="fas fa-bug cyber-icon"></i>
+                        <h4>Penetration Testing</h4>
+                        <p>Develop ethical hacking skills to test and strengthen security systems from an attacker's
+                            perspective.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-5" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 mb-4 fade-in">Featured Courses</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="course-card fade-in">
+                        <div class="p-4">
+                            <i class="fas fa-lock cyber-icon"></i>
+                            <h5>Cybersecurity Fundamentals</h5>
+                            <p class="text-white">Learn the basics of cybersecurity, risk management, and security
+                                frameworks.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-success fw-bold">$299</span>
+                                <button class="btn btn-sm btn-cyber">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="course-card fade-in">
+                        <div class="p-4">
+                            <i class="fas fa-user-secret cyber-icon"></i>
+                            <h5>Ethical Hacking</h5>
+                            <p class="text-white">Master penetration testing, vulnerability assessment, and security
+                                auditing.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-success fw-bold">$499</span>
+                                <button class="btn btn-sm btn-cyber">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="course-card fade-in">
+                        <div class="p-4">
+                            <i class="fas fa-database cyber-icon"></i>
+                            <h5>Digital Forensics</h5>
+                            <p class="text-white">Investigate cyber crimes and recover digital evidence using advanced
+                                techniques.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-success fw-bold">$399</span>
+                                <button class="btn btn-sm btn-cyber">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-count="10000">0</div>
+                        <h5>Students Trained</h5>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-count="50">0</div>
+                        <h5>Expert Instructors</h5>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-count="95">0</div>
+                        <h5>Success Rate %</h5>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-count="24">0</div>
+                        <h5>24/7 Support</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="fade-in">
+                        <h2 class="display-5 mb-4">About Cyber Defense Academy</h2>
+                        <p class="lead">We are the premier cybersecurity training institution, dedicated to building the
+                            next generation of cyber defenders.</p>
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>Industry-certified courses</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>Real-world simulations</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>Expert mentorship</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>Career placement</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="cyber-card fade-in">
+                        <div class="text-center p-4">
+                            <i class="fas fa-graduation-cap cyber-icon" style="font-size: 6rem;"></i>
+                            <h4 class="mt-3">Join the Elite</h4>
+                            <p>Become part of an exclusive community of cybersecurity professionals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 mb-4 fade-in">Get In Touch</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="cyber-card text-center fade-in">
+                        <i class="fas fa-envelope cyber-icon"></i>
+                        <h5>Email Us</h5>
+                        <p>info@cyberdefenseacademy.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="cyber-card text-center fade-in">
+                        <i class="fas fa-phone cyber-icon"></i>
+                        <h5>Call Us</h5>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="cyber-card text-center fade-in">
+                        <i class="fas fa-map-marker-alt cyber-icon"></i>
+                        <h5>Visit Us</h5>
+                        <p>123 Cyber Street, Tech City</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="text-primary">Cyber Defense Academy</h5>
+                    <p>Securing the digital future through education and innovation.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-github fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Cyber Defense Academy. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Loading animation
+        window.addEventListener('load', function () {
+            document.getElementById('loader').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+            }, 500);
+        });
+
+        // Fade in animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const count = parseInt(counter.innerText);
+                const increment = target / 200;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounters(), 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Start counter animation when stats section is visible
+        window.addEventListener('scroll', function () {
+            const statsSection = document.querySelector('.stats-section');
+            const rect = statsSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                animateCounters();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(26, 26, 46, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(26, 26, 46, 0.9)';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -19,7 +19,7 @@ A comprehensive collection of professional, responsive landing page templates bu
 
 ## 🌟 Overview
 
-This project is a curated collection of 6 professional landing page templates designed for different industries and use cases. Each template is built using only Bootstrap 5 components and utilities, ensuring maximum compatibility, performance, and ease of customization.
+This project is a curated collection of 9 professional landing page templates designed for different industries and use cases. Each template is built using only Bootstrap 5 components and utilities, ensuring maximum compatibility, performance, and ease of customization.
 
 ### ✨ Key Highlights
 
@@ -61,43 +61,42 @@ This project is a curated collection of 6 professional landing page templates de
 ### 1. 🏠 **Main Hub (index.html)**
 The central landing page showcasing all available templates with:
 - Hero section with gradient background
-- Template showcase grid
+- Template showcase grid with 9 categories
 - Feature highlights
 - Responsive navigation
-- Smooth animations
+- Smooth animations and 3D effects
 
 ### 2. 🏢 **Corporate Templates (corporate-tamplates.html)**
 Professional business template featuring:
-- Executive hero section
-- Services showcase
-- About company section
-- Portfolio gallery
+- Executive hero section with gradient overlay
+- 6 comprehensive services showcase
+- About company section with statistics
+- Portfolio gallery (3 featured projects)
 - Team members display
-- Statistics counters
-- Testimonials carousel
-- Contact forms
+- Statistics counters (750+ projects, 450+ clients)
+- Client testimonials carousel
+- Contact forms with validation
 
 ### 3. 🛒 **E-commerce Templates (e-commerce-templates.html)**
 Complete online store template with:
-- Product showcase
-- Shopping cart functionality
-- Category filtering
-- Product galleries
-- Payment integration display
-- Customer testimonials
+- Product showcase with 6 template categories
+- Shopping cart functionality with badge counter
+- Category filtering (Fashion, Electronics, Home & Garden, etc.)
+- Product galleries with hover effects
+- Payment integration display (Visa, PayPal, Stripe, etc.)
+- Customer testimonials with ratings
 - Newsletter signup
-- Store features
+- Payment method showcase
 
 ### 4. 🎨 **Creative Portfolio (creative-portfolio.html)**
 Artistic portfolio template including:
-- Creative hero design
-- Portfolio gallery
-- Interactive project displays
-- Skills showcase
-- Creative statistics
+- Creative hero design with floating animations
+- Portfolio gallery (6 interactive project displays)
+- Feature showcases (Responsive, Fast, Beautiful, etc.)
+- Skills and statistics counters
 - Contact information
 - Social media integration
-- Modern animations
+- Modern animations and 3D hover effects
 
 ### 5. 🍽️ **Restaurant & Food (restaurant-food.html)**
 Food service template featuring:
@@ -112,14 +111,14 @@ Food service template featuring:
 
 ### 6. 🏥 **Healthcare & Medical (healthcare-medical.html)**
 Medical services template with:
-- Professional healthcare design
-- Medical services overview
-- Doctor profiles
-- Appointment booking forms
+- Professional healthcare design with gradient backgrounds
+- 6 medical services overview (Cardiology, Neurology, etc.)
+- Doctor profiles (3 featured doctors)
+- Appointment booking forms with department selection
 - Patient testimonials
-- Contact information
-- Medical statistics
-- Health-focused imagery
+- Contact information with business hours
+- Medical statistics (15,000+ patients, 50+ doctors)
+- Health-focused imagery and animations
 
 ### 7. 💻 **Tech & SaaS (tech-saas.html)**
 Technology and SaaS template featuring:
@@ -131,6 +130,27 @@ Technology and SaaS template featuring:
 - Integration displays
 - Developer resources
 - Contact forms
+
+### 8. 🎖️ **Military & Defense Academy (military-defense-academy.html)**
+Elite military training academy template with:
+- Heroic military-themed design with 3D effects
+- 6 comprehensive training programs (Air Force, Naval, Ground Forces, etc.)
+- Academy features showcase
+- Statistics section (25+ years, 5000+ graduates)
+- Advanced technology and equipment displays
+- Honor and discipline focus
+- Application forms for enlistment
+- Military-grade styling with gold accents
+
+### 9. 🛡️ **Cyber Defense Academy (cyber-defense-academy.html)**
+Cybersecurity training academy template featuring:
+- High-tech cyber-themed design with animations
+- 3 featured courses (Cybersecurity Fundamentals, Ethical Hacking, Digital Forensics)
+- Advanced threat detection features
+- Statistics display (10,000 students, 95% success rate)
+- Modern tech styling with neon effects
+- Contact forms and enrollment options
+- Dark theme with gradient backgrounds
 
 ## 🛠️ Technologies Used
 
@@ -283,6 +303,32 @@ Technology and SaaS template featuring:
 - Integration Display
 - Contact Forms
 - Developer Resources
+```
+
+### Military & Defense Academy
+```html
+<!-- Military Components -->
+- Elite Hero Section
+- Training Programs (6 programs)
+- Academy Features
+- Statistics Section
+- Military Technology Display
+- Honor and Values Focus
+- Application Forms
+- Military-themed Styling
+```
+
+### Cyber Defense Academy
+```html
+<!-- Cyber Features -->
+- High-tech Hero Design
+- Cybersecurity Courses (3 courses)
+- Advanced Features
+- Success Statistics
+- Modern Tech Styling
+- Enrollment Forms
+- Dark Theme Design
+- Neon Effects
 ```
 
 ## 🎨 Customization Guide

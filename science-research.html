@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Research Hub</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Color Scheme */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #06b6d4;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotate3D {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-rotate3D {
+            animation: rotate3D 20s linear infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn-3d {
+            background: linear-gradient(45deg, var(--accent-color), #0891b2);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+            transform: perspective(1000px) rotateX(0deg);
+        }
+
+        .btn-3d:hover {
+            transform: perspective(1000px) rotateX(-10deg) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.4);
+            color: white;
+        }
+
+        /* 3D Icon Cards */
+        .icon-3d {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #ffffff, #e2e8f0);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            box-shadow:
+                20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+            transition: all 0.3s ease;
+            margin: 0 auto 1rem;
+        }
+
+        .icon-3d:hover {
+            transform: rotateY(15deg) rotateX(15deg);
+            box-shadow:
+                25px 25px 70px #bebebe,
+                -25px -25px 70px #ffffff;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-color);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* Research Areas */
+        .research-area {
+            background: linear-gradient(135deg, var(--light-color), #e2e8f0);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .research-area:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 3D Molecule Animation */
+        .molecule-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .molecule {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .atom {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--accent-color), var(--primary-color));
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+
+        .atom:nth-child(1) {
+            top: 50%;
+            left: 50%;
+            animation: rotate3D 10s linear infinite;
+        }
+
+        .atom:nth-child(2) {
+            top: 30%;
+            left: 30%;
+            animation: rotate3D 15s linear infinite reverse;
+        }
+
+        .atom:nth-child(3) {
+            top: 70%;
+            left: 70%;
+            animation: rotate3D 12s linear infinite;
+        }
+
+        .atom:nth-child(4) {
+            top: 30%;
+            left: 70%;
+            animation: rotate3D 18s linear infinite reverse;
+        }
+
+        .atom:nth-child(5) {
+            top: 70%;
+            left: 30%;
+            animation: rotate3D 8s linear infinite;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .icon-3d {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+        style="background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-atom me-2"></i>ScienceHub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content animate-fadeInUp">
+                        <h1 class="hero-title">Advancing Science Through Innovation</h1>
+                        <p class="hero-subtitle">Cutting-edge research and breakthrough discoveries that shape the
+                            future of humanity</p>
+                        <a href="#research" class="btn-3d">Explore Research</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="molecule-container animate-float">
+                        <div class="molecule">
+                            <div class="atom"></div>
+                            <div class="atom"></div>
+                            <div class="atom"></div>
+                            <div class="atom"></div>
+                            <div class="atom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item animate-pulse">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Research Projects</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item animate-pulse">
+                        <span class="stat-number">200+</span>
+                        <div class="stat-label">Scientists</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item animate-pulse">
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item animate-pulse">
+                        <span class="stat-number">25+</span>
+                        <div class="stat-label">Awards</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5" style="background: var(--light-color);">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Our Research Areas</h2>
+                    <p class="lead">Pioneering discoveries across multiple scientific disciplines</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="icon-3d animate-float">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Biotechnology</h4>
+                        <p>Advanced genetic research and bioengineering solutions for medical breakthroughs and
+                            sustainable development.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="icon-3d animate-float">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Artificial Intelligence</h4>
+                        <p>Machine learning algorithms and neural networks that revolutionize data analysis and
+                            decision-making processes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="icon-3d animate-float">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Quantum Physics</h4>
+                        <p>Exploring quantum mechanics and developing quantum computing technologies for next-generation
+                            applications.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="icon-3d animate-float">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Environmental Science</h4>
+                        <p>Climate research and sustainable solutions to address global environmental challenges and
+                            conservation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="icon-3d animate-float">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Space Technology</h4>
+                        <p>Aerospace engineering and space exploration technologies for understanding the universe and
+                            beyond.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="icon-3d animate-float">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Neuroscience</h4>
+                        <p>Brain research and cognitive science to understand consciousness and develop neurological
+                            treatments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Current Research Projects</h2>
+                    <p class="lead">Discover our ongoing research initiatives that are shaping tomorrow's innovations
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="research-area">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-microscope me-2" style="color: var(--primary-color);"></i>
+                            Precision Medicine
+                        </h4>
+                        <p>Developing personalized treatment approaches using genetic profiling and advanced diagnostics
+                            to improve patient outcomes and reduce side effects.</p>
+                    </div>
+                    <div class="research-area">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-solar-panel me-2" style="color: var(--primary-color);"></i>
+                            Renewable Energy
+                        </h4>
+                        <p>Innovative solar cell technologies and energy storage solutions to create more efficient and
+                            sustainable power systems for the future.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="research-area">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-microchip me-2" style="color: var(--primary-color);"></i>
+                            Quantum Computing
+                        </h4>
+                        <p>Building quantum processors and algorithms that will revolutionize computing power and solve
+                            complex problems previously thought impossible.</p>
+                    </div>
+                    <div class="research-area">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-seedling me-2" style="color: var(--primary-color);"></i>
+                            Sustainable Agriculture
+                        </h4>
+                        <p>Developing smart farming techniques and crop enhancement technologies to ensure food security
+                            while protecting our environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Contact Section -->
+    <section id="contact" class="py-5" style="background: var(--light-color);">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Get In Touch</h2>
+                    <p class="lead">Ready to collaborate on groundbreaking research? Let's connect and explore possibilities together.</p>
+                </div>
+            </div>
+            
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <div class="feature-card">
+                        <h3 class="fw-bold mb-4">Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="col-12">
+                                    <label for="organization" class="form-label">Organization/Institution</label>
+                                    <input type="text" class="form-control" id="organization">
+                                </div>
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Subject *</label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Choose a topic...</option>
+                                        <option value="collaboration">Research Collaboration</option>
+                                        <option value="funding">Funding Opportunities</option>
+                                        <option value="partnership">Partnership Inquiry</option>
+                                        <option value="publication">Publication Request</option>
+                                        <option value="internship">Internship/Job Opportunities</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message *</label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your research interests, collaboration ideas, or any questions you may have..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Subscribe to our research newsletter for latest updates
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-3d">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="col-lg-4">
+                    <div class="feature-card h-100">
+                        <h3 class="fw-bold mb-4">Contact Information</h3>
+                        
+                        <div class="contact-info-item mb-4">
+                            <div class="icon-3d mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h5 class="fw-bold">Address</h5>
+                            <p class="text-muted mb-0">123 Research Boulevard<br>Science City, SC 12345<br>United States</p>
+                        </div>
+                        
+                        <div class="contact-info-item mb-4">
+                            <div class="icon-3d mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h5 class="fw-bold">Phone</h5>
+                            <p class="text-muted mb-1">Main: +1 (555) 123-4567</p>
+                            <p class="text-muted mb-0">Research Dept: +1 (555) 123-4568</p>
+                        </div>
+                        
+                        <div class="contact-info-item mb-4">
+                            <div class="icon-3d mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h5 class="fw-bold">Email</h5>
+                            <p class="text-muted mb-1">info@sciencehub.com</p>
+                            <p class="text-muted mb-0">research@sciencehub.com</p>
+                        </div>
+                        
+                        <div class="contact-info-item mb-4">
+                            <div class="icon-3d mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h5 class="fw-bold">Office Hours</h5>
+                            <p class="text-muted mb-1">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                            <p class="text-muted mb-0">Weekend: By appointment</p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="fw-bold mb-3">Follow Us</h5>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center text-white">
+                    <h2 class="display-6 fw-bold mb-4">Join Our Research Community</h2>
+                    <p class="lead mb-4">Be part of groundbreaking discoveries and contribute to the advancement of
+                        science</p>
+                    <a href="#contact" class="btn-3d me-3">Get Involved</a>
+                    <a href="#" class="btn btn-outline-light btn-lg">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-atom me-2"></i>ScienceHub
+                    </h5>
+                    <p>Advancing scientific knowledge through collaborative research and innovative solutions for a
+                        better tomorrow.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Research</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Projects</a></li>
+                        <li><a href="#" class="text-white-50">Publications</a></li>
+                        <li><a href="#" class="text-white-50">Collaborations</a></li>
+                        <li><a href="#" class="text-white-50">Funding</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Lab Access</a></li>
+                        <li><a href="#" class="text-white-50">Equipment</a></li>
+                        <li><a href="#" class="text-white-50">Data Sets</a></li>
+                        <li><a href="#" class="text-white-50">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <p class="text-white-50 mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        123 Research Boulevard, Science City
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="fas fa-phone me-2"></i>
+                        +1 (555) 123-4567
+                    </p>
+                    <p class="text-white-50">
+                        <i class="fas fa-envelope me-2"></i>
+                        info@sciencehub.com
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-white-50 mb-0">&copy; 2024 ScienceHub. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Research</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Projects</a></li>
+                        <li><a href="#" class="text-white-50">Publications</a></li>
+                        <li><a href="#" class="text-white-50">Collaborations</a></li>
+                        <li><a href="#" class="text-white-50">Funding</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Lab Access</a></li>
+                        <li><a href="#" class="text-white-50">Equipment</a></li>
+                        <li><a href="#" class="text-white-50">Data Sets</a></li>
+                        <li><a href="#" class="text-white-50">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <p class="text-white-50 mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        123 Research Boulevard, Science City
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="fas fa-phone me-2"></i>
+                        +1 (555) 123-4567
+                    </p>
+                    <p class="text-white-50">
+                        <i class="fas fa-envelope me-2"></i>
+                        info@sciencehub.com
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-white-50 mb-0">&copy; 2024 ScienceHub. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Smooth Scrolling -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and research areas
+        document.querySelectorAll('.feature-card, .research-area').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + '+';
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (!firstName || !lastName || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
+            button.style.background = 'linear-gradient(45deg, #10b981, #059669)';
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                this.reset();
+                button.innerHTML = originalText;
+                button.style.background = 'linear-gradient(45deg, var(--accent-color), #0891b2)';
+                alert('Thank you for your message! We will get back to you soon.');
+            }, 2000);
+        });
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>
