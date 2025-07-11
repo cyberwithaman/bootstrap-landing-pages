@@ -181,7 +181,7 @@ Cybersecurity training academy template featuring:
 
 1. **Clone or Download**
    ```bash
-   git clone https://github.com/amananilofficial/bootstrap-landing-pages.git
+   git clone https://github.com/cyberwithaman/bootstrap-landing-pages.git
    # OR download ZIP file and extract
    ```
 
